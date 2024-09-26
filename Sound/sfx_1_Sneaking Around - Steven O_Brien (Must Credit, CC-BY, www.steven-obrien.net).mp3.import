@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dplf8r0tlua47"
+path="res://.godot/imported/sfx_1_Sneaking Around - Steven O_Brien (Must Credit, CC-BY, www.steven-obrien.net).mp3-7c5b67301e78bc7d4620ea0341fa9e29.mp3str"
+
+[deps]
+
+source_file="res://Sound/sfx_1_Sneaking Around - Steven O_Brien (Must Credit, CC-BY, www.steven-obrien.net).mp3"
+dest_files=["res://.godot/imported/sfx_1_Sneaking Around - Steven O_Brien (Must Credit, CC-BY, www.steven-obrien.net).mp3-7c5b67301e78bc7d4620ea0341fa9e29.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

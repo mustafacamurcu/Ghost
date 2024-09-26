@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://beyyshdqo3gi2"]
+
+[ext_resource type="Script" path="res://opening.gd" id="1_86rh4"]
+[ext_resource type="PackedScene" uid="uid://cirsb7a36a2lp" path="res://options.tscn" id="3_0bkfm"]
+[ext_resource type="Texture2D" uid="uid://y6rg2oj2qr6h" path="res://skeleton.png" id="3_q317x"]
+[ext_resource type="PackedScene" uid="uid://ewxhlfa7fqmq" path="res://start_menu.tscn" id="4_dy5wh"]
+
+[node name="Opening" type="Node2D"]
+scale = Vector2(1.02, 0.88)
+script = ExtResource("1_86rh4")
+
+[node name="Ghosts" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(320, 214)
+
+[node name="Options" parent="." instance=ExtResource("3_0bkfm")]
+visible = false
+offset_left = 861.0
+offset_top = 203.0
+offset_right = 861.0
+offset_bottom = 203.0
+scale = Vector2(2, 2)
+
+[node name="StartMenu" parent="." instance=ExtResource("4_dy5wh")]
+offset_left = 861.0
+offset_top = 203.0
+offset_right = 861.0
+offset_bottom = 203.0
+scale = Vector2(2, 2)
+metadata/_edit_use_anchors_ = true
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(524, 478)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_q317x")
+flip_h = true
+hframes = 4
+vframes = 4
+frame = 10
+
+[node name="Label" type="Label" parent="."]
+offset_left = -10.7843
+offset_top = -101.136
+offset_right = 1868.22
+offset_bottom = 342.864
+theme_override_colors/font_color = Color(0.65098, 0.768627, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 150
+text = "RESURRECTION INC."
+horizontal_alignment = 1
+vertical_alignment = 1

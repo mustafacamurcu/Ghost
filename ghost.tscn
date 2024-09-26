@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://d16clnye6mdx2"]
+
+[ext_resource type="Script" path="res://ghost.gd" id="1_kf12w"]
+[ext_resource type="Texture2D" uid="uid://bi7srds3okmxj" path="res://parts/shoes/pink_shoes.png" id="2_072y4"]
+[ext_resource type="Texture2D" uid="uid://daskhp150qvwa" path="res://parts/accessories/bird.png" id="3_iuvhf"]
+[ext_resource type="Texture2D" uid="uid://cx360d1d5bs0d" path="res://parts/bodies/ghost.png" id="4_0hkns"]
+[ext_resource type="Texture2D" uid="uid://yeyc7o2mrywr" path="res://parts/eyes/eyepatch.png" id="5_l2qbu"]
+[ext_resource type="Texture2D" uid="uid://vf2fqrfhv3fm" path="res://parts/hats/piratehat.png" id="6_wcwst"]
+[ext_resource type="Texture2D" uid="uid://ynp74lduf0i4" path="res://parts/accessories/telescope.png" id="7_1mkcw"]
+[ext_resource type="AudioStream" uid="uid://cr84vuxlvutcn" path="res://Sound/sfx_5-cartoon-falling-eco-407_mixkit.wav" id="7_oql60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv7lm"]
+size = Vector2(1355, 1355)
+
+[sub_resource type="Animation" id="Animation_37eeq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_48t2f"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aby2q"]
+_data = {
+"RESET": SubResource("Animation_37eeq"),
+"idle": SubResource("Animation_48t2f")
+}
+
+[node name="Ghost" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_kf12w")
+
+[node name="accessory_behind" type="Sprite2D" parent="."]
+texture = ExtResource("3_iuvhf")
+
+[node name="shoes" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_072y4")
+
+[node name="body" type="Sprite2D" parent="."]
+texture = ExtResource("4_0hkns")
+hframes = 6
+
+[node name="eyes" type="Sprite2D" parent="."]
+texture = ExtResource("5_l2qbu")
+
+[node name="hat" type="Sprite2D" parent="."]
+texture = ExtResource("6_wcwst")
+
+[node name="accessory_front" type="Sprite2D" parent="."]
+texture = ExtResource("7_1mkcw")
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(28.5, -56.5)
+shape = SubResource("RectangleShape2D_wv7lm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aby2q")
+}
+autoplay = "idle"
+
+[node name="Falling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_oql60")

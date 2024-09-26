@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://beyyshdqo3gi2"]
+
+[ext_resource type="Script" path="res://opening.gd" id="1_86rh4"]
+[ext_resource type="Texture2D" uid="uid://bjdora2kueasn" path="res://frog/CharacterSheet_CharacterFront.png" id="2_x7bnj"]
+[ext_resource type="Texture2D" uid="uid://c8mp1y1ngrdqp" path="res://bugnet.svg" id="3_sr6t2"]
+[ext_resource type="PackedScene" uid="uid://ewxhlfa7fqmq" path="res://start_menu.tscn" id="4_dy5wh"]
+
+[node name="Opening" type="Node2D"]
+script = ExtResource("1_86rh4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 639)
+scale = Vector2(14.88, 1)
+
+[node name="Ghosts" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(320, 214)
+scale = Vector2(1.58136, 1.08477)
+
+[node name="StartMenu" parent="." instance=ExtResource("4_dy5wh")]
+offset_left = 861.0
+offset_top = 203.0
+offset_right = 861.0
+offset_bottom = 203.0
+scale = Vector2(2, 2)
+metadata/_edit_use_anchors_ = true
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(266, 727)
+scale = Vector2(3, 3)
+texture = ExtResource("2_x7bnj")
+flip_h = true
+hframes = 5
+vframes = 3
+
+[node name="bugnet" type="Sprite2D" parent="."]
+position = Vector2(606, 548)
+rotation = 0.128331
+texture = ExtResource("3_sr6t2")
+flip_h = true
